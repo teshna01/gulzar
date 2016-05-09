@@ -1,0 +1,19 @@
+//边栏隐藏显示
+    var $lateral_menu_trigger = $('#menu-trigger'),
+		$content_wrapper = $('.main');
+	    $lateral_menu_trigger.click(function(event){
+		event.preventDefault();
+             if($lateral_menu_trigger.hasClass("is-close")){
+            $content_wrapper.stop().animate({"margin-left":200});
+            $('#sidebar').fadeIn();
+            $lateral_menu_trigger.removeClass("is-close");
+            $.cookie("is_menu_open",1);
+            $content_wrapper.css('margin-left','200px;');
+        }else{
+			$content_wrapper.stop().animate({"margin-left":0});
+            $('#sidebar').stop().fadeOut();
+            $lateral_menu_trigger.addClass("is-close"); 
+            $.cookie("is_menu_open",0);
+            $content_wrapper.css('margin-left','0px;');
+        }
+		
